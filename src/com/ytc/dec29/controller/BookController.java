@@ -26,6 +26,7 @@ public class BookController {
     
     @RequestMapping("/update")
     public String update(int id,int bookUp) {
+        System.out.println("update");
         bookService.update(id,bookUp);
         return "results";
     }

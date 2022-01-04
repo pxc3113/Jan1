@@ -12,8 +12,8 @@ public interface BookMapper {
     @SelectKey(keyProperty = "id",keyColumn = "c_id",before = false,resultType = Integer.class, statement = "select last_insert_id()")
     public void add(Book company);
 
-    @Update("update t_book set bookUp = #{up} where id = #{id}")
-    public void update(int id, int up);
+    // @Update("update t_book set bookUp = #{bookUp} where id = #{id}")
+    public void update(@Param("id") int id, @Param("bookUp") int bookUp);
     
     @Select("select c_password from t_book where c_name = #{name}")
     String getPassword(String name, String password);

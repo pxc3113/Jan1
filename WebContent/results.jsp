@@ -21,11 +21,22 @@
         <tbody>
             <c:forEach items="${list}" var="book">
                 <tr>
+           
                     <td>${book.name}</td>
                     <td>${book.price}</td>
                     <td>${book.bookType.name}</td>
                     <td>${book.show}</td>
-                    <td>${book.bookUp}</td>
+                   
+                    <td>
+                        <c:choose>
+                            <c:when test="${book.bookUp==1}">
+                                up
+                            </c:when>
+                            <c:when test="${book.bookUp==0}">
+                                down
+                            </c:when>
+                        </c:choose> 
+                    </td>
                     <td>
                         <c:choose>
                             <c:when test="${book.bookUp==1}">
@@ -43,7 +54,8 @@
   
 </body>
 <script type="text/javascript">
-    function toggle(id, bookUp){
+    function toggle(id,bookUp){
+
         $.ajax({
                 url: "<%=request.getContextPath()%>/book/update.do",
                 type: "post",
@@ -58,6 +70,7 @@
                 }
         })
     }
+    
     //å é¤
     function delUser(userid) {
         if (confirm("ä½ ç¡®å®å é¤åï¼")) {

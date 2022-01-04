@@ -40,9 +40,10 @@ public class BookServiceImpl implements BookService {
 	public List<Book> getAll() {
 		return bookMapper.getAll();
 	}
+	
 	@Override
-	public void update(int id, int up) {
-		bookMapper.update(id, up);
+	public void update(int id, int bookUp) {
+		bookMapper.update(id, bookUp);
 	}
 
 	/* (non-Javadoc)    

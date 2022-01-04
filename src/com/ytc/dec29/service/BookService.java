@@ -14,8 +14,9 @@ import com.ytc.dec29.model.*;
 
 public interface BookService {
 
-	List<Book> getAll(Book book);
+	List<Book> getAll();
 //	void add(Book book);
 
 	void update(int id, int up);
+
 }

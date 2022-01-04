@@ -37,8 +37,8 @@ public class BookServiceImpl implements BookService {
 	 * @see com.ytc.service.BookService#queryPageList()    
 	 */
 	@Override
-	public List<Book> getAll(Book book) {
-		return bookMapper.getAll(book);
+	public List<Book> getAll() {
+		return bookMapper.getAll();
 	}
 	@Override
 	public void update(int id, int up) {

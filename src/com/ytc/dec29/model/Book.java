@@ -1,24 +1,25 @@
 package com.ytc.dec29.model;
+import java.lang.ProcessBuilder.Redirect.Type;
 import java.util.Objects;
 public class Book {
     private Integer id;
     private String name;
     private Integer price;
     private String show;
-    private Integer typeId;
-    private Integer userId;
     private Integer bookUp;
+    private BookType bookType;
+    private User user;
 
     public Book() {
     }
 
-    public Book(Integer id, String name, Integer price, String show, Integer typeId, Integer userId, Integer bookUp) {
+    public Book(Integer id, String name, Integer price, String show, BookType bookType, User user, Integer bookUp) {
         this.id = id;
         this.name = name;
         this.price = price;
         this.show = show;
-        this.typeId = typeId;
-        this.userId = userId;
+        this.bookType = bookType;
+        this.user = user;
         this.bookUp = bookUp;
     }
 
@@ -54,20 +55,20 @@ public class Book {
         this.show = show;
     }
 
-    public Integer getTypeId() {
-        return this.typeId;
+    public BookType getBookType() {
+        return this.bookType;
     }
 
-    public void setTypeId(Integer typeId) {
-        this.typeId = typeId;
+    public void setBookType(BookType bookType) {
+        this.bookType = bookType;
     }
 
-    public Integer getUserId() {
-        return this.userId;
+    public User getUser() {
+        return this.user;
     }
 
-    public void setUserId(Integer userId) {
-        this.userId = userId;
+    public void setUser(User user) {
+        this.user = user;
     }
 
     public Integer getBookUp() {
@@ -98,13 +99,13 @@ public class Book {
         return this;
     }
 
-    public Book typeId(Integer typeId) {
-        setTypeId(typeId);
+    public Book bookType(BookType bookType) {
+        setBookType(bookType);
         return this;
     }
 
-    public Book userId(Integer userId) {
-        setUserId(userId);
+    public Book user(User user) {
+        setUser(user);
         return this;
     }
 
@@ -121,12 +122,12 @@ public class Book {
             return false;
         }
         Book book = (Book) o;
-        return Objects.equals(id, book.id) && Objects.equals(name, book.name) && Objects.equals(price, book.price) && Objects.equals(show, book.show) && Objects.equals(typeId, book.typeId) && Objects.equals(userId, book.userId) && Objects.equals(bookUp, book.bookUp);
+        return Objects.equals(id, book.id) && Objects.equals(name, book.name) && Objects.equals(price, book.price) && Objects.equals(show, book.show) && Objects.equals(bookType, book.bookType) && Objects.equals(user, book.user) && Objects.equals(bookUp, book.bookUp);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(id, name, price, show, typeId, userId, bookUp);
+        return Objects.hash(id, name, price, show, bookType, user, bookUp);
     }
 
     @Override
@@ -136,8 +137,8 @@ public class Book {
             ", name='" + getName() + "'" +
             ", price='" + getPrice() + "'" +
             ", show='" + getShow() + "'" +
-            ", typeId='" + getTypeId() + "'" +
-            ", userId='" + getUserId() + "'" +
+            ", bookType='" + getBookType() + "'" +
+            ", user='" + getUser() + "'" +
             ", bookUp='" + getBookUp() + "'" +
             "}";
     }

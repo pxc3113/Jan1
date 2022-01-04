@@ -19,12 +19,14 @@ public class BookController {
     
     @RequestMapping("/getAll")
     public String getAll(Model model, Book book) {
-        model.addAttribute("list", bookService.getAll(book));
+    	System.out.println(bookService.getAll());
+        model.addAttribute("list", bookService.getAll());
         return "results";
     }
+    
     @RequestMapping("/update")
-    public String update(int id,int up) {
-        bookService.update(id,up==1?0:1);
+    public String update(int id,int bookUp) {
+        bookService.update(id,bookUp);
         return "results";
     }
 

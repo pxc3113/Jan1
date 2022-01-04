@@ -7,20 +7,11 @@ import com.ytc.dec29.model.*;
 public interface BookMapper {
 
 
-    @Select("select * from t_book")
-    @Results(id="resultMap",value={
-        @Result(property = "id",column="id"),
-        @Result(property = "name",column="bookName"),
-        @Result(property = "price",column="bookPrice"),
-        @Result(property = "show",column="bookShow"),
-        @Result(property = "typeId",column="typeId"),
-        @Result(property = "bookUp",column="bookUp"),
-    })
-    List<Book> getAll(Book book);
+    List<Book> getAll();
 
     @SelectKey(keyProperty = "id",keyColumn = "c_id",before = false,resultType = Integer.class, statement = "select last_insert_id()")
     public void add(Book company);
-    
+
     @Update("update t_book set bookUp = #{up} where id = #{id}")
     public void update(int id, int up);
     

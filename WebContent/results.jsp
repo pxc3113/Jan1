@@ -10,7 +10,6 @@
     <table border="1">
         <thead>
             <tr>
-                <td>book id</td>
                 <td>book name</td>
                 <td>book price</td>
                 <td>book type</td>
@@ -22,13 +21,21 @@
         <tbody>
             <c:forEach items="${list}" var="book">
                 <tr>
-                    <td>${book.id}</td>
                     <td>${book.name}</td>
                     <td>${book.price}</td>
-                    <td>${book.type.name}</td>
+                    <td>${book.bookType.name}</td>
                     <td>${book.show}</td>
-                    <td>${book.up}</td>
-                    <td><input type="button" onclick="toggle(${book.id})"></td>
+                    <td>${book.bookUp}</td>
+                    <td>
+                        <c:choose>
+                            <c:when test="${book.bookUp==1}">
+                                <input type="button" value="down" onclick="toggle(${book.id},0)">
+                            </c:when>
+                            <c:when test="${book.bookUp==0}">
+                                <input type="button" value="up" onclick="toggle(${book.id},1)">
+                            </c:when>
+                        </c:choose> 
+                    </td>
                 </tr>
             </c:forEach>
         </tbody>
@@ -36,12 +43,13 @@
   
 </body>
 <script type="text/javascript">
-    function toggle(id){
+    function toggle(id, bookUp){
         $.ajax({
                 url: "<%=request.getContextPath()%>/book/update.do",
                 type: "post",
                 data: {
-                    "id": id
+                    "id": id,
+                    "bookUp": bookUp
                 },
                 success: function () {
                     location.reload();

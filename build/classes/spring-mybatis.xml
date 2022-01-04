@@ -18,7 +18,7 @@
 		<!-- 引入属性文件 -->
 	<context:property-placeholder location="classpath:config.properties" />
 	<!-- 注解扫描包 -->
-	<context:component-scan base-package="com.ytc.service" />
+	<context:component-scan base-package="com.ytc.dec29.service" />
 	 <!-- 配置数据源 -->
 	<bean id="dataSource" class="org.springframework.jdbc.datasource.DriverManagerDataSource"> 
     	<property name="driverClassName">
@@ -40,7 +40,7 @@
 	<bean id="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">
 		<property name="dataSource" ref="dataSource" />
 		<!-- 自动扫描录mybatis的 xml文件 -->
-		<!--<property name="mapperLocations" value="classpath:com/ytc/dec29/mapping/*.xml" />-->
+		<property name="mapperLocations" value="classpath:com/ytc/dec29/mapping/*.xml" />
 	</bean>
 
 	<bean class="org.mybatis.spring.mapper.MapperScannerConfigurer">

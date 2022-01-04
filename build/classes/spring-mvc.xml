@@ -16,7 +16,7 @@
 
 	<!-- 对项目中的所有类进行扫描以完成Bean创建并进行自动注入。  支持 @Controller、@Service 以及 @Repository 和 @Component -->
 	<!-- 扫描项目中com.jk.shop.controller包下所有的类，从而使类中的@Controller注解生效 -->
-	<context:component-scan base-package="com.ytc.controller" />
+	<context:component-scan base-package="com.ytc.dec29.controller" />
 	
 	<!-- 开启注解配置方式 -->
 	<!-- 激活基于注解的配置 @RequestMapping, @ExceptionHandler,数据绑定 ,@NumberFormat ,
